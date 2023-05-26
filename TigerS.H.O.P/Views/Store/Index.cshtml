@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TigerS.H.O.P.Models.Product>
+
+@{
+    ViewData["Title"] = "Store";
+
+}
+
+<h2 class="my-4">Store</h2>
+
+<div class="row">
+
+    @foreach (var product in Model)
+    {
+        <div class="col-3">
+            <div class="card my-2 store-card">
+                <a class="a-cleanup" asp-controller="store" asp-action="Details" asp-route-id="@product.Id">
+
+                    <img src="@product.ProductImage" class="card-img-top card-img-custom">
+
+                <div class="card-body" style="height:6em;">
+                    <h5 class="mb-3">@product.Title</h5>
+                 </div>
+
+                 <div class="card-body">
+                     <span class="card-text">@product.Price.ToString("c")</span>
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id" class="btn btn-primary float-end"><i class="fa-solid fa-cart-shopping"></i></a>
+                 </div>
+
+                </a>
+            </div>
+        </div>
+    }
+</div>
