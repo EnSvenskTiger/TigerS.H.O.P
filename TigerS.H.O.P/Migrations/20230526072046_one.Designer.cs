@@ -12,8 +12,8 @@ using TigerS.H.O.P.Data;
 namespace TigerS.H.O.P.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230524164338_first")]
-    partial class first
+    [Migration("20230526072046_one")]
+    partial class one
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,16 +25,6 @@ namespace TigerS.H.O.P.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("TigerS.H.O.P.Models.Cart", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Carts");
-                });
-
             modelBuilder.Entity("TigerS.H.O.P.Models.CartItem", b =>
                 {
                     b.Property<int>("Id")
@@ -45,7 +35,7 @@ namespace TigerS.H.O.P.Migrations
 
                     b.Property<string>("CartId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -54,8 +44,6 @@ namespace TigerS.H.O.P.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CartId");
 
                     b.HasIndex("ProductId");
 
@@ -191,19 +179,11 @@ namespace TigerS.H.O.P.Migrations
 
             modelBuilder.Entity("TigerS.H.O.P.Models.CartItem", b =>
                 {
-                    b.HasOne("TigerS.H.O.P.Models.Cart", "Cart")
-                        .WithMany("CartItems")
-                        .HasForeignKey("CartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("TigerS.H.O.P.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Cart");
 
                     b.Navigation("Product");
                 });
@@ -225,11 +205,6 @@ namespace TigerS.H.O.P.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("TigerS.H.O.P.Models.Cart", b =>
-                {
-                    b.Navigation("CartItems");
                 });
 
             modelBuilder.Entity("TigerS.H.O.P.Models.Order", b =>
