@@ -41,6 +41,8 @@ namespace TigerS.H.O.P
                // options.IdleTimeout = TimeSpan.FromSeconds(10);
             });
 
+            builder.Services.AddHttpClient();
+            builder.Services.AddHttpContextAccessor();
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())

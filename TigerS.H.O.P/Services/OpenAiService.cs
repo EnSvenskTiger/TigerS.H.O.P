@@ -32,13 +32,15 @@ namespace TigerS.H.O.P.Services
 
         public async Task<string> CompleteSentence(string text)
         {
+            //api instance
             var api = new OpenAI_API.OpenAIAPI(_openAiConfig.Key);
             var result = await api.Completions.GetCompletion(text);
             return result;
         }
 
         public async Task<string> CompleteSentenceAdvance(string text)
-        {
+        { 
+            //api instance
             var api = new OpenAI_API.OpenAIAPI(_openAiConfig.Key);
 
             var result = await api.Completions.CreateCompletionAsync(
