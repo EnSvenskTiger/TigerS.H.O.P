@@ -20,7 +20,7 @@
 .store-btn{
     transition: all 0.2s ease;
 }
-    .store-btn:hover {
-        background-color: chartreuse;
-        border: 1px solid chartreuse;
-    }
+.store-btn:hover {
+    background-color: chartreuse;
+    border: 1px solid chartreuse;
+}
