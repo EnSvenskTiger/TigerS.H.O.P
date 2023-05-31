@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using TigerS.H.O.P.Configruations;
 using TigerS.H.O.P.Data;
 using TigerS.H.O.P.Models;
+using TigerS.H.O.P.Services;
+
 
 namespace TigerS.H.O.P
 {
@@ -11,7 +15,14 @@ namespace TigerS.H.O.P
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.Configure<OpenAiConfig>(builder.Configuration.GetSection("OpenAI"));
+
+
             builder.Services.AddControllersWithViews();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IOpenAiService, OpenAiService>();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
@@ -30,7 +41,19 @@ namespace TigerS.H.O.P
                // options.IdleTimeout = TimeSpan.FromSeconds(10);
             });
 
+            builder.Services.AddHttpClient();
+            builder.Services.AddHttpContextAccessor();
             var app = builder.Build();
+
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                    options.RoutePrefix = "api";
+                });
+            }
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
