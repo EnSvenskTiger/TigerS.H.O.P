@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TigerS.H.O.P.Data;
 
@@ -11,9 +12,11 @@ using TigerS.H.O.P.Data;
 namespace TigerS.H.O.P.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230531053940_auth")]
+    partial class auth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -358,7 +361,7 @@ namespace TigerS.H.O.P.Migrations
                         {
                             Id = 3,
                             Color = "Blue, White, Green, Red",
-                            Description = "Clothes for the little ones",
+                            Description = "Hoodie for everyone",
                             Price = 179m,
                             ProductImage = "/lib/images/tiger3.jpg",
                             Size = "3-9 Year",
@@ -373,86 +376,6 @@ namespace TigerS.H.O.P.Migrations
                             ProductImage = "/lib/images/tiger4.jpg",
                             Size = "XS-XXL",
                             Title = "Deluxe"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Color = "Blue, White, Green, Red, Yellow",
-                            Description = "Fantastic t-shirt for everyone",
-                            Price = 399m,
-                            ProductImage = "/lib/images/tiger5.jpg",
-                            Size = "XS-XXL",
-                            Title = "T-Shirt"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Color = "Tiger",
-                            Description = "Costume för children",
-                            Price = 799m,
-                            ProductImage = "/lib/images/tiger6.jpg",
-                            Size = "3-8 year",
-                            Title = "Children's costume"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Color = "Tiger",
-                            Description = "Nice, super nice",
-                            Price = 2999m,
-                            ProductImage = "/lib/images/tiger7.jpg",
-                            Size = "XS-XXXL",
-                            Title = "Suit jacket"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Color = "Tiger",
-                            Description = "Dress for everyday use",
-                            Price = 1499m,
-                            ProductImage = "/lib/images/tiger8.jpg",
-                            Size = "XS-XXXL",
-                            Title = "Tiger Style"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Color = "Tiger",
-                            Description = "Dress for everyday use",
-                            Price = 7999m,
-                            ProductImage = "/lib/images/tiger9.jpg",
-                            Size = "XS-XXXL",
-                            Title = "Dress"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Color = "Red, Blue",
-                            Description = "Lovely shirt",
-                            Price = 299m,
-                            ProductImage = "/lib/images/tiger10.jpg",
-                            Size = "XS-XXXL",
-                            Title = "Shirt"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Color = "Tiger",
-                            Description = "Super cool long sleeved tiger motive",
-                            Price = 349m,
-                            ProductImage = "/lib/images/tiger11.jpg",
-                            Size = "XS-XXXL",
-                            Title = "Long sleeved"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Color = "Black, White",
-                            Description = "Dress for special partys",
-                            Price = 999m,
-                            ProductImage = "/lib/images/tiger12.jpg",
-                            Size = "XS-XXXL",
-                            Title = "Dress"
                         });
                 });
 
