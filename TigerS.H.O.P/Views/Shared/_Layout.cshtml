@@ -6,16 +6,51 @@
     <title>@ViewData["Title"] - TigerS.H.O.P</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/Awsome/css/all.css" />
-    @*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/myCss.css" />
-    <link rel="stylesheet" href="~/css/BootWatch.css" />
+    @*<link rel="stylesheet" href="~/css/BootWatch.css" />*@
     <link rel="stylesheet" href="~/TigerS.H.O.P.styles.css" asp-append-version="true" />
 
 
 
 </head>
 <body>
-    <header>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand"</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                  <li class="nav-item">
+                        <a class="nav-link text-black fw-bolder" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-black fw-bolder" asp-area="" asp-controller="Store" asp-action="Index">Store</a>
+@*                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-black fw-bolder" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                        </li>*@
+                        <li class="nav-item">
+                        <a class="nav-link text-black fw-bolder" asp-area="" asp-controller="Ai" asp-action="Index">Contact</a>
+                        </li>
+                </ul>
+                <a class="nav-link float-end " asp-area="" asp-controller="Cart" asp-action="Index" style="font-size: 30px;"><i class="fa-solid fa-cart-shopping"></i></a>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    @*<header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bolder" asp-area="" asp-controller="Home" asp-action="Index">Tiger S.H.O.P</a>
@@ -35,7 +70,7 @@
                             <a class="nav-link text-dark fw-bolder" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Ai" asp-action="Index">AI</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Ai" asp-action="Index">Contact</a>
                         </li>
                     </ul>
                     <a class="nav-link text-dark float-end " asp-area="" asp-controller="Cart" asp-action="Index" style="font-size: 30px;"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -43,7 +78,7 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header>*@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
