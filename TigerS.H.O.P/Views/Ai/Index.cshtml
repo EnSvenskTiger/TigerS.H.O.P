@@ -1,0 +1,14 @@
+﻿@model StringViewModel
+
+<form asp-action="Index" method="post" name="login">
+
+    <label asp-for="QuestionToAi" class="control-label"></label>
+    <input asp-for="QuestionToAi" class="form-control" placeholder="Ask Something" />
+
+</form>
+<div class="card">
+            <div class="card-body">
+                <h5 class="card-title">ChatGpt Answer</h5>
+                <p class="card-text">@Model.AiRespons</p>
+            </div>
+        </div>
