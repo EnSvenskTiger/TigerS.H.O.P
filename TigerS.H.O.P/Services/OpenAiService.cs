@@ -21,7 +21,7 @@ namespace TigerS.H.O.P.Services
             var api = new OpenAI_API.OpenAIAPI(_openAiConfig.Key);
             var chat = api.Chat.CreateConversation();
 
-            chat.AppendSystemMessage("You are a teacher who help new programmers to understand if things are a programming language or not. If the user tells you a programming language respond with yes, if a user tells you something witch is not a programing language respond with no. you will only respond with yes or no. you do not say anything else.");
+            chat.AppendSystemMessage("if you are asked (what are the contact details for Tigershop) you should answer this = Phone: +467355588999 and Email: Tigershop@gmail.com");
 
             chat.AppendUserInput(language);
 

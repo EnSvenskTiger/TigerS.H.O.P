@@ -16,7 +16,7 @@ namespace TigerS.H.O.P.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(StringViewModel Input) 
         {
-            string url = "https://localhost:7221/OpenAi/AskQuestion?text=C%23"; // byta när vi får Azure
+            string url = "https://localhost:7221/OpenAi/AskQuestion?text=contact%20details%20for%20Tigershop"; // byta när vi får Azure
             var ApiRequest = new
             {
                 Input = Input.QuestionToAi
@@ -38,7 +38,7 @@ namespace TigerS.H.O.P.Controllers
             var ToString = JsonConvert.SerializeObject(ApiRequest);
             var InputString = new StringContent(ToString, Encoding.UTF8, "application/json");
             HttpClient client= new HttpClient();
-            var Respons = await client.PostAsync("https://localhost:7221/OpenAi/AskQuestion?text=C%23",InputString);
+            var Respons = await client.PostAsync("https://localhost:7221/OpenAi/AskQuestion?text=contact%20details%20for%20Tigershop", InputString);
             var ApiAnwser = await Respons.Content.ReadAsStringAsync();
             var Anwser = JsonConvert.DeserializeObject<StringViewModel>(ApiAnwser);
             return View(Anwser);
